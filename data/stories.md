@@ -37,3 +37,23 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
+
+## ask for leave 2
+* greet
+    - utter_greet
+* ask_for_leave
+    - leave_form
+    - form{"name": "leave_form"}
+    - form{"name": null}
+* affirm
+    - utter_happy
+
+## ask for leave 3
+* greet
+    - utter_greet
+* ask_for_leave
+    - leave_form
+    - form{"name": "leave_form"}
+    - form{"name": null}
+* goodbye
+    - utter_goodbye
