@@ -54,3 +54,10 @@
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
+
+## intent:ask_for_leave
+- I want to take some days off
+- I'd like to take leave
+- I want to ask for leave
+- I want to ask for leave [tomorrow](time)
+- I'd like to take a leave from [tomorrow](start_time) to [Friday](end_time)
