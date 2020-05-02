@@ -59,5 +59,20 @@
 - I want to take some days off
 - I'd like to take leave
 - I want to ask for leave
-- I want to ask for leave [tomorrow](time)
+- I want to ask for leave [tomorrow](DATE)
 - I'd like to take a leave from [tomorrow](start_time) to [Friday](end_time)
+
+## intent:cancel_leave
+- I want to cancel leave
+- I want to cancel my leave
+- I'd like to cancel leave
+- please cancel my leave
+- please cancel my leave on Friday[DATE]
+
+## intent:inform
+- [tomorrow](DATE)
+- [next week](DATE)
+- [today](DATE)
+- [Friday](DATE)
+- [next Monday](DATE)
+- [this Thursday](DATE)

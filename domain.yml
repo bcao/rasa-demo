@@ -10,14 +10,19 @@ intents:
 - mood_unhappy
 - bot_challenge
 - ask_for_leave
+- cancel_leave
+- inform
 entities:
-- time
+- TIME
+- DATE
 - start_time
 - end_time
 slots:
   end_time:
     type: unfeaturized
   start_time:
+    type: unfeaturized
+  confirm:
     type: unfeaturized
 responses:
   utter_greet:
@@ -30,13 +35,39 @@ responses:
   utter_happy:
   - text: Great, carry on!
   utter_goodbye:
-  - text: Bye
+  - text: Bye, are you satisfied with my service?
+    buttons:
+      - title: yes
+        payload: yes
+      - title: no
+        payload: no
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_ask_start_time:
   - text: when to start?
   utter_ask_end_time:
   - text: when to end?
+  utter_check_policy:
+    - text: Do you know the EGA's policy on leave?
+      buttons:
+        - title: yes
+          payload: yes
+        - title: no
+          payload: no
+  utter_cancel_leave:
+    - text: Are you sure you want to cancel your leave?
+      buttons:
+        - title: yes
+          payload: yes
+        - title: no
+          payload: no
+  utter_ask_confirm:
+    - text: 'Are you sure you want to take leave from ${start_time} to ${end_time}?'
+      buttons:
+        - title: yes
+          payload: yes
+        - title: no
+          payload: no
 actions:
 - utter_ask_start_time
 - utter_ask_end_time
@@ -46,5 +77,6 @@ actions:
 - utter_happy
 - utter_goodbye
 - utter_iamabot
+- utter_check_policy
 forms:
 - leave_form

@@ -49,3 +49,8 @@
 ## bot challenge
 * bot_challenge: are you a bot?
   - utter_iamabot
+
+## intent:inform
+- [today](time)
+- from [tomorrow](start_time)
+- [Friday](time)

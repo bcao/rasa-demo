@@ -74,7 +74,7 @@ class LeaveForm(FormAction):
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
 
-        return ["start_time", "end_time"]
+        return ["start_time", "end_time", "confirm"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -85,10 +85,10 @@ class LeaveForm(FormAction):
 
         return {
             "start_time": [
-                self.from_entity(entity="start_time")
+                self.from_entity(entity="DATE")
             ],
             "end_time": [
-                self.from_entity(entity="end_time"),
+                self.from_entity(entity="DATE"),
             ],
             "confirm": [
                 self.from_intent(value=True, intent="affirm"),
@@ -97,6 +97,8 @@ class LeaveForm(FormAction):
         }
 
     def submit(self, dispatcher, tracker, domain):
+        # start_time = tracker.get_slot("start_time")
+        # end_time = tracker.get_slot("end_time")
         if tracker.get_slot("confirm"):
             dispatcher.utter_message(template="utter_goodbye")
             return []

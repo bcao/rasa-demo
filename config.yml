@@ -13,8 +13,12 @@ pipeline:
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper
-  # - name: ResponseSelector
-  #   epochs: 100
+  - name: ResponseSelector
+    epochs: 100
+  - name: "SpacyNLP"
+    model: "en_core_web_md"
+  - name: "SpacyEntityExtractor"
+    dimensions: ["TIME", "DATE"]
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
