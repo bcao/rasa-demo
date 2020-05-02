@@ -62,7 +62,7 @@ responses:
         - title: no
           payload: no
   utter_ask_confirm:
-    - text: 'Are you sure you want to take leave from ${start_time} to ${end_time}?'
+    - text: 'Are you sure you want to take leave from {start_time} to {end_time}?'
       buttons:
         - title: yes
           payload: yes

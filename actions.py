@@ -85,10 +85,12 @@ class LeaveForm(FormAction):
 
         return {
             "start_time": [
-                self.from_entity(entity="DATE")
+                self.from_entity(entity="DATE"),
+                self.from_entity(entity="start_time")
             ],
             "end_time": [
                 self.from_entity(entity="DATE"),
+                self.from_entity(entity="end_time")
             ],
             "confirm": [
                 self.from_intent(value=True, intent="affirm"),
@@ -97,11 +99,9 @@ class LeaveForm(FormAction):
         }
 
     def submit(self, dispatcher, tracker, domain):
-        # start_time = tracker.get_slot("start_time")
-        # end_time = tracker.get_slot("end_time")
         if tracker.get_slot("confirm"):
             dispatcher.utter_message(template="utter_goodbye")
-            return []
+            return [AllSlotsReset()]
         else:
             dispatcher.utter_message(template="utter_goodbye")
             return [AllSlotsReset()]
