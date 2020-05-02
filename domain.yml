@@ -26,7 +26,7 @@ slots:
     type: unfeaturized
 responses:
   utter_greet:
-  - text: Hey! How are you?
+  - text: Hey! How are you? What can I do for you today?
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -35,7 +35,7 @@ responses:
   utter_happy:
   - text: Great, carry on!
   utter_goodbye:
-  - text: Bye, are you satisfied with my service?
+  - text: It is done, are you satisfied with my service?
     buttons:
       - title: yes
         payload: yes
@@ -69,7 +69,7 @@ responses:
         - title: no
           payload: no
   utter_goodbye_birthday:
-    - text: It is done. By the way, I noticed it is your birthday tomorrow. Happy Birthday!
+    - text: By the way, I noticed it is your birthday tomorrow. Happy Birthday!
       image: https://asset.holidaycardsapp.com/assets/card/j_newad_126.png
 actions:
 - utter_ask_start_time

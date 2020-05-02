@@ -65,6 +65,8 @@ logger = logging.getLogger(__name__)
 class LeaveForm(FormAction):
     """Leave form..."""
 
+    birthday = True
+
     def name(self) -> Text:
         """Unique identifier of the form"""
 
@@ -82,26 +84,56 @@ class LeaveForm(FormAction):
             - intent: value pairs
             - a whole message
             or a list of them, where a first match will be picked"""
-
-        return {
-            "start_time": [
-                self.from_entity(entity="DATE"),
-                self.from_entity(entity="start_time")
-            ],
-            "end_time": [
-                self.from_entity(entity="DATE"),
-                self.from_entity(entity="end_time")
-            ],
-            "confirm": [
-                self.from_intent(value=True, intent="affirm"),
-                self.from_intent(value=False, intent="deny"),
-            ],
-        }
+        is_inform = self.from_trigger_intent(intent='inform', value=True)
+        if is_inform:
+            return {
+                "start_time": [
+                    self.from_entity(entity="start_time")
+                ],
+                "end_time": [
+                    self.from_entity(entity="end_time")
+                ],
+                "confirm": [
+                    self.from_intent(value=True, intent="affirm"),
+                    self.from_intent(value=False, intent="deny"),
+                ],
+            }
+        else:
+            return {
+                "start_time": [
+                    self.from_entity(entity="DATE"),
+                    self.from_entity(entity="start_time")
+                ],
+                "end_time": [
+                    self.from_entity(entity="DATE"),
+                    self.from_entity(entity="end_time")
+                ],
+                "confirm": [
+                    self.from_intent(value=True, intent="affirm"),
+                    self.from_intent(value=False, intent="deny"),
+                ],
+            }
 
     def submit(self, dispatcher, tracker, domain):
-        if tracker.get_slot("confirm"):
-            dispatcher.utter_message(template="utter_goodbye_birthday")
+        if tracker.get_slot("utter_goodbye"):
+            if birthday:
+                dispatcher.utter_message(template="utter_goodbye_birthday")
+                birthday = False
+            else:
+                dispatcher.utter_message(template="utter_goodbye")
             return [AllSlotsReset()]
         else:
             dispatcher.utter_message(template="utter_goodbye")
             return [AllSlotsReset()]
+
+class ActionRestarted(Action): 	
+    def name(self): 		
+        return 'action_restarted' 	
+    def run(self, dispatcher, tracker, domain): 
+        return[Restarted()] 
+
+class ActionSlotReset(Action): 	
+    def name(self): 		
+        return 'action_slot_reset' 	
+    def run(self, dispatcher, tracker, domain): 		
+        return[AllSlotsReset()]

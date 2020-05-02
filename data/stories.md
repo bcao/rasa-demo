@@ -37,6 +37,8 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
+* goodbye
+    - action_restart
 
 ## ask for leave 2
 * greet
@@ -46,7 +48,8 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * affirm
-    - utter_happy
+    - utter_goodbye_birthday
+    - action_restart
 
 ## ask for leave 3
 * greet
@@ -57,3 +60,4 @@
     - form{"name": null}
 * goodbye
     - utter_goodbye
+    - action_restart
