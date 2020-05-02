@@ -84,35 +84,38 @@ class LeaveForm(FormAction):
             - intent: value pairs
             - a whole message
             or a list of them, where a first match will be picked"""
-        is_inform = self.from_trigger_intent(intent='inform', value=True)
-        if is_inform:
-            return {
-                "start_time": [
-                    self.from_entity(entity="start_time")
-                ],
-                "end_time": [
-                    self.from_entity(entity="end_time")
-                ],
-                "confirm": [
-                    self.from_intent(value=True, intent="affirm"),
-                    self.from_intent(value=False, intent="deny"),
-                ],
-            }
-        else:
-            return {
-                "start_time": [
-                    self.from_entity(entity="DATE"),
-                    self.from_entity(entity="start_time")
-                ],
-                "end_time": [
-                    self.from_entity(entity="DATE"),
-                    self.from_entity(entity="end_time")
-                ],
-                "confirm": [
-                    self.from_intent(value=True, intent="affirm"),
-                    self.from_intent(value=False, intent="deny"),
-                ],
-            }
+        # is_inform = self.from_intent(intent='inform', value=True)
+        # logger.debug(f"is_inform: '{is_inform}'")
+        # print("is_inform is:")
+        # print(is_inform)
+        # if is_inform:
+            # return {
+            #     "start_time": [
+            #         self.from_entity(entity="start_time")
+            #     ],
+            #     "end_time": [
+            #         self.from_entity(entity="end_time")
+            #     ],
+            #     "confirm": [
+            #         self.from_intent(value=True, intent="affirm"),
+            #         self.from_intent(value=False, intent="deny"),
+            #     ],
+            # }
+        # else:
+        return {
+            "start_time": [
+                self.from_entity(entity="DATE"),
+                self.from_entity(entity="start_time")
+            ],
+            "end_time": [
+                self.from_entity(entity="DATE"),
+                self.from_entity(entity="end_time")
+            ],
+            "confirm": [
+                self.from_intent(value=True, intent="affirm"),
+                self.from_intent(value=False, intent="deny"),
+            ],
+        }
 
     def submit(self, dispatcher, tracker, domain):
         if tracker.get_slot("utter_goodbye"):
