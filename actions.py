@@ -100,7 +100,7 @@ class LeaveForm(FormAction):
 
     def submit(self, dispatcher, tracker, domain):
         if tracker.get_slot("confirm"):
-            dispatcher.utter_message(template="utter_goodbye")
+            dispatcher.utter_message(template="utter_goodbye_birthday")
             return [AllSlotsReset()]
         else:
             dispatcher.utter_message(template="utter_goodbye")

@@ -68,6 +68,9 @@ responses:
           payload: yes
         - title: no
           payload: no
+  utter_goodbye_birthday:
+    - text: It is done. By the way, I noticed it is your birthday tomorrow. Happy Birthday!
+      image: https://asset.holidaycardsapp.com/assets/card/j_newad_126.png
 actions:
 - utter_ask_start_time
 - utter_ask_end_time
