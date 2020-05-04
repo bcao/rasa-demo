@@ -82,5 +82,5 @@
 ## language change
 * chinese
   - utter_chinese_change
-* affirm
+* affirm_zh
   - utter_chinese

@@ -17,6 +17,7 @@ intents:
 - cancel_leave_email_yes
 - cancel_leave_email_no
 - chinese
+- affirm_zh
 - EMAIL_reminder:
     triggers: action_email_reminder
 entities:
@@ -92,10 +93,10 @@ responses:
   utter_chinese_change:
     - text: 'I noticed you are speaking Chinese. Do you want to change language to Chinese? 我注意到您在使用中文。您希望切换到中文进行交流么？'
       buttons:
-        - title: yes
-          payload: yes
-        - title: no
-          payload: no
+        - title: "是"
+          payload: "是"
+        - title: "否"
+          payload: "否"
   utter_chinese:
     - text: '请问可以怎么帮到您？'
 actions:

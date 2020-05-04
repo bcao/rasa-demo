@@ -25,6 +25,10 @@
 - that sounds good
 - correct
 
+## intent:affirm_zh
+- 是
+- 好的
+
 ## intent:deny
 - no
 - never
