@@ -84,3 +84,9 @@
   - utter_chinese_change
 * affirm_zh
   - utter_chinese
+
+## check task
+* greet
+  - utter_greet
+* check_task
+  - utter_list_task

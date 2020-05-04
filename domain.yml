@@ -18,6 +18,7 @@ intents:
 - cancel_leave_email_no
 - chinese
 - affirm_zh
+- check_task
 - EMAIL_reminder:
     triggers: action_email_reminder
 entities:
@@ -26,15 +27,34 @@ entities:
 - start_time
 - end_time
 slots:
+  confirm:
+    type: unfeaturized
   end_time:
     type: unfeaturized
   start_time:
     type: unfeaturized
-  confirm:
-    type: unfeaturized
 responses:
   utter_greet:
   - text: Hey! How are you? What can I do for you today?
+    buttons:
+    - title: I want to check my tasks
+      payload: I want to check my tasks
+    - title: I want to take leave
+      payload: I want to take leave
+    - title: I want to take leave
+      payload: I want to take leave
+    - title: I want to update my information
+      payload: I want to update my information
+    - title: more FAQs
+      payload: more FAQs
+  utter_list_task:
+  - text: You have a leave request from Tom on next Monday (detals at http://ega/ticket/t313).
+      Do you want to approve?
+    buttons:
+    - title: yes
+      payload: yes
+    - title: no
+      payload: no
   utter_cheer_up:
   - text: 'Here is something to cheer you up:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -45,60 +65,64 @@ responses:
   utter_goodbye:
   - text: Are you satisfied with my service?
     buttons:
-      - title: yes
-        payload: yes
-      - title: no
-        payload: no
+    - title: yes
+      payload: yes
+    - title: no
+      payload: no
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_ticket_created:
-    - text: 'It is done. A ticket has been created at the same it. The ticket id is T314. You may refer to http://ega/ticket/t314 for record.'
+  - text: It is done. A ticket has been created at the same it. The ticket id is T314.
+      You may refer to http://ega/ticket/t314 for record.
   utter_ask_start_time:
   - text: when to start?
   utter_ask_end_time:
   - text: when to end?
   utter_check_policy:
-    - text: Do you know the EGA's policy on leave?
-      buttons:
-        - title: yes
-          payload: yes
-        - title: no
-          payload: no
+  - text: Do you know the EGA's policy on leave?
+    buttons:
+    - title: yes
+      payload: yes
+    - title: no
+      payload: no
   utter_cancel_leave:
-    - text: 'Ive check the record. You have a leave request from today to tomorrow. Are you sure you want to cancel your leave?'
-      buttons:
-        - title: yes
-          payload: "/cancel_leave_yes"
-        - title: no
-          payload: "/cancel_leave_no"
+  - text: Ive check the record. You have a leave request from today to tomorrow. Are
+      you sure you want to cancel your leave?
+    buttons:
+    - title: yes
+      payload: /cancel_leave_yes
+    - title: no
+      payload: /cancel_leave_no
   utter_cancel_leave_confirm:
-    - text: According to the requirement, you need to ask the approval from you manager. Do you need me to send an email for you?
-      buttons:
-        - title: yes
-          payload: "/cancel_leave_email_yes"
-        - title: no
-          payload: "/cancel_leave_email_no"
+  - text: According to the requirement, you need to ask the approval from you manager.
+      Do you need me to send a request for you?
+    buttons:
+    - title: yes
+      payload: /cancel_leave_email_yes
+    - title: no
+      payload: /cancel_leave_email_no
   utter_cancel_leave_email_done:
-    - text: An email has been send. I will notify you when I got the reply.
+  - text: A request has been send. I will notify you when I got the reply.
   utter_ask_confirm:
-    - text: 'Are you sure you want to take leave from {start_time} to {end_time}?'
-      buttons:
-        - title: yes
-          payload: yes
-        - title: no
-          payload: no
+  - text: Are you sure you want to take leave from {start_time} to {end_time}?
+    buttons:
+    - title: yes
+      payload: yes
+    - title: no
+      payload: no
   utter_goodbye_birthday:
-    - text: By the way, I noticed it is your birthday tomorrow. Happy Birthday!
-      image: https://asset.holidaycardsapp.com/assets/card/j_newad_126.png
+  - text: By the way, I noticed it is your birthday tomorrow. Happy Birthday!
+    image: https://asset.holidaycardsapp.com/assets/card/j_newad_126.png
   utter_chinese_change:
-    - text: 'I noticed you are speaking Chinese. Do you want to change language to Chinese? 我注意到您在使用中文。您希望切换到中文进行交流么？'
-      buttons:
-        - title: "是"
-          payload: "是"
-        - title: "否"
-          payload: "否"
+  - text: I noticed you are speaking Chinese. Do you want to change language to Chinese?
+      我注意到您在使用中文。您希望切换到中文进行交流么？
+    buttons:
+    - title: 是
+      payload: 是
+    - title: 否
+      payload: 否
   utter_chinese:
-    - text: '请问可以怎么帮到您？'
+  - text: 请问可以怎么帮到您？
 actions:
 - utter_ask_start_time
 - utter_ask_end_time
@@ -113,5 +137,14 @@ actions:
 - action_restarted
 - action_slot_reset
 - action_cancel_leave_email_yes
+- utter_list_task
+- utter_ticket_created
+- utter_cancel_leave
+- utter_cancel_leave_confirm
+- utter_cancel_leave_email_done
+- utter_ask_confirm
+- utter_goodbye_birthday
+- utter_chinese_change
+- utter_chinese
 forms:
 - leave_form

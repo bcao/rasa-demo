@@ -90,3 +90,7 @@
 - Friday
 - next Monday
 - this Thursday
+
+## intent:check_task
+- I want to check my tasks
+- check tasks for me
