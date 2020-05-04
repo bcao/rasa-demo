@@ -152,14 +152,15 @@ class LeaveForm(FormAction):
         }
 
     def submit(self, dispatcher, tracker, domain):
-        if tracker.get_slot("utter_goodbye"):
-            if birthday:
+        if tracker.get_slot("confirm"):
+            if self.birthday:
+                dispatcher.utter_message(template="utter_ticket_created")
                 dispatcher.utter_message(template="utter_goodbye_birthday")
-                birthday = False
+                self.birthday = False
             else:
-                dispatcher.utter_message(template="utter_goodbye")
+                dispatcher.utter_message(template="utter_ticket_created")
             SlotSet("confirm", None)
-            return []
+            return [AllSlotsReset()]
         else:
             dispatcher.utter_message(template="utter_goodbye")
             return [AllSlotsReset()]

@@ -6,6 +6,12 @@
 - good evening
 - hey there
 
+## intent:chinese
+- 你好
+- 好
+- 在
+- 在吗？
+
 ## intent:goodbye
 - bye
 - goodbye

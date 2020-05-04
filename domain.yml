@@ -16,6 +16,7 @@ intents:
 - cancel_leave_no
 - cancel_leave_email_yes
 - cancel_leave_email_no
+- chinese
 - EMAIL_reminder:
     triggers: action_email_reminder
 entities:
@@ -41,7 +42,7 @@ responses:
   utter_happy:
   - text: Great, carry on!
   utter_goodbye:
-  - text: It is done, are you satisfied with my service?
+  - text: Are you satisfied with my service?
     buttons:
       - title: yes
         payload: yes
@@ -49,6 +50,8 @@ responses:
         payload: no
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+  utter_ticket_created:
+    - text: 'It is done. A ticket has been created at the same it. The ticket id is T314. You may refer to http://ega/ticket/t314 for record.'
   utter_ask_start_time:
   - text: when to start?
   utter_ask_end_time:
@@ -86,6 +89,15 @@ responses:
   utter_goodbye_birthday:
     - text: By the way, I noticed it is your birthday tomorrow. Happy Birthday!
       image: https://asset.holidaycardsapp.com/assets/card/j_newad_126.png
+  utter_chinese_change:
+    - text: 'I noticed you are speaking Chinese. Do you want to change language to Chinese? 我注意到您在使用中文。您希望切换到中文进行交流么？'
+      buttons:
+        - title: yes
+          payload: yes
+        - title: no
+          payload: no
+  utter_chinese:
+    - text: '请问可以怎么帮到您？'
 actions:
 - utter_ask_start_time
 - utter_ask_end_time

@@ -37,6 +37,8 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
+* affirm
+    - utter_ticket_created
 * goodbye
 
 ## ask for leave 2
@@ -47,17 +49,8 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * affirm
-    - utter_goodbye_birthday
-
-## ask for leave 3
-* greet
-    - utter_greet
-* ask_for_leave
-    - leave_form
-    - form{"name": "leave_form"}
-    - form{"name": null}
+    - utter_ticket_created
 * goodbye
-    - utter_goodbye
 
 ## cancel leave
 * greet
@@ -77,11 +70,17 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
-* goodbye
-    - utter_goodbye
+* affirm
+    - utter_ticket_created
 * cancel_leave
   - utter_cancel_leave
 * cancel_leave_yes
   - utter_cancel_leave_confirm
 * cancel_leave_email_yes
   - action_cancel_leave_email_yes
+
+## language change
+* chinese
+  - utter_chinese_change
+* affirm
+  - utter_chinese
