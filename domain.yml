@@ -12,6 +12,10 @@ intents:
 - ask_for_leave
 - cancel_leave
 - inform
+- cancel_leave_yes
+- cancel_leave_no
+- cancel_leave_email_yes
+- cancel_leave_email_no
 entities:
 - TIME
 - DATE
@@ -55,12 +59,21 @@ responses:
         - title: no
           payload: no
   utter_cancel_leave:
-    - text: Are you sure you want to cancel your leave?
+    - text: 'Ive check the record. You have a leave request from {start_time} to {end_time}. Are you sure you want to cancel your leave?'
       buttons:
         - title: yes
-          payload: yes
+          payload: "/cancel_leave_yes"
         - title: no
-          payload: no
+          payload: "/cancel_leave_no"
+  utter_cancel_leave_confirm:
+    - text: According to the requirement, you need to ask the approval from you manager. Do you need me to send an email for you?
+      buttons:
+        - title: yes
+          payload: "/cancel_leave_email_yes"
+        - title: no
+          payload: "/cancel_leave_email_no"
+  utter_cancel_leave_email_done:
+    - text: An email has been send. I will notify you when I got the reply.
   utter_ask_confirm:
     - text: 'Are you sure you want to take leave from {start_time} to {end_time}?'
       buttons:

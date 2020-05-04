@@ -38,29 +38,36 @@ from rasa_sdk.events import Form, AllSlotsReset, SlotSet, Restarted, EventType
 logger = logging.getLogger(__name__)
 
 
-# class CustomFormAction(FormAction):
-#     def name(self):
-#         return ""
+class CustomFormAction(FormAction):
+    def name(self):
+        return ""
 
-#     def request_next_slot(
-#         self,
-#         dispatcher: "CollectingDispatcher",
-#         tracker: "Tracker",
-#         domain: Dict[Text, Any],
-#     ) -> Optional[List[EventType]]:
-#         """Request the next slot and utter template if needed,
-#             else return None"""
+    def request_next_slot(
+        self,
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: Dict[Text, Any],
+    ) -> Optional[List[EventType]]:
+        """Request the next slot and utter template if needed,
+            else return None"""
 
-#         for slot in self.required_slots(tracker):
-#             if self._should_request_slot(tracker, slot):
-#                 logger.debug(f"Request next slot '{slot}'")
-#                 dispatcher.utter_message(
-#                     template=f"utter_ask_{self.name()}_{slot}", **tracker.slots
-#                 )
-#                 return [SlotSet(REQUESTED_SLOT, slot)]
+        for slot in self.required_slots(tracker):
+            if self._should_request_slot(tracker, slot):
+                logger.debug(f"Request next slot '{slot}'")
+                dispatcher.utter_message(
+                    template=f"utter_ask_{self.name()}_{slot}", **tracker.slots
+                )
+                return [SlotSet(REQUESTED_SLOT, slot)]
 
-#         return None
+        return None
 
+class ActionCancelLeave(Action):
+    def name(self):
+        return "action_cancel_leave"
+
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message(template="utter_cancel_leave")
+        return [AllSlotsReset()]
 
 class LeaveForm(FormAction):
     """Leave form..."""
@@ -84,24 +91,6 @@ class LeaveForm(FormAction):
             - intent: value pairs
             - a whole message
             or a list of them, where a first match will be picked"""
-        # is_inform = self.from_intent(intent='inform', value=True)
-        # logger.debug(f"is_inform: '{is_inform}'")
-        # print("is_inform is:")
-        # print(is_inform)
-        # if is_inform:
-            # return {
-            #     "start_time": [
-            #         self.from_entity(entity="start_time")
-            #     ],
-            #     "end_time": [
-            #         self.from_entity(entity="end_time")
-            #     ],
-            #     "confirm": [
-            #         self.from_intent(value=True, intent="affirm"),
-            #         self.from_intent(value=False, intent="deny"),
-            #     ],
-            # }
-        # else:
         return {
             "start_time": [
                 self.from_entity(entity="DATE"),
@@ -124,7 +113,8 @@ class LeaveForm(FormAction):
                 birthday = False
             else:
                 dispatcher.utter_message(template="utter_goodbye")
-            return [AllSlotsReset()]
+            SlotSet("confirm", None)
+            return []
         else:
             dispatcher.utter_message(template="utter_goodbye")
             return [AllSlotsReset()]

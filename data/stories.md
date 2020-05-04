@@ -38,7 +38,6 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * goodbye
-    - action_restart
 
 ## ask for leave 2
 * greet
@@ -49,7 +48,6 @@
     - form{"name": null}
 * affirm
     - utter_goodbye_birthday
-    - action_restart
 
 ## ask for leave 3
 * greet
@@ -60,4 +58,30 @@
     - form{"name": null}
 * goodbye
     - utter_goodbye
-    - action_restart
+
+## cancel leave
+* greet
+  - utter_greet
+* cancel_leave
+  - utter_cancel_leave
+* cancel_leave_yes
+  - utter_cancel_leave_confirm
+* cancel_leave_email_yes
+  - utter_cancel_leave_email_done
+
+
+## ask leave and cancel leave
+* greet
+    - utter_greet
+* ask_for_leave
+    - leave_form
+    - form{"name": "leave_form"}
+    - form{"name": null}
+* goodbye
+    - utter_goodbye
+* cancel_leave
+  - utter_cancel_leave
+* cancel_leave_yes
+  - utter_cancel_leave_confirm
+* cancel_leave_email_yes
+  - utter_cancel_leave_email_done
