@@ -34,6 +34,7 @@ from rasa_sdk import Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction, REQUESTED_SLOT
 from rasa_sdk.events import Form, AllSlotsReset, SlotSet, Restarted, EventType
+from rasa_sdk.events import ReminderScheduled, ReminderCancelled
 
 logger = logging.getLogger(__name__)
 
@@ -68,6 +69,50 @@ class ActionCancelLeave(Action):
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_message(template="utter_cancel_leave")
         return [AllSlotsReset()]
+
+class ActionCancelLeaveEmailYes(Action):
+    def name(self):
+        return "action_cancel_leave_email_yes"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(template="utter_cancel_leave_email_done")
+
+        date = datetime.datetime.now() + datetime.timedelta(seconds=5)
+        entities = tracker.latest_message.get("entities")
+
+        reminder = ReminderScheduled(
+            "EMAIL_reminder",
+            trigger_date_time=date,
+            entities=entities,
+            name="my_reminder",
+            kill_on_user_message=False,
+        )
+
+        return [reminder]
+
+class ActionReactToReminder(Action):
+    """Reminds the user to call someone."""
+
+    def name(self) -> Text:
+        return "action_email_reminder"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(template="I've got the reply from you manager and he has approved your cancellation.")
+
+        return []
+
 
 class LeaveForm(FormAction):
     """Leave form..."""

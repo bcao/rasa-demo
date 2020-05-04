@@ -67,7 +67,7 @@
 * cancel_leave_yes
   - utter_cancel_leave_confirm
 * cancel_leave_email_yes
-  - utter_cancel_leave_email_done
+  - action_cancel_leave_email_yes
 
 
 ## ask leave and cancel leave
@@ -84,4 +84,4 @@
 * cancel_leave_yes
   - utter_cancel_leave_confirm
 * cancel_leave_email_yes
-  - utter_cancel_leave_email_done
+  - action_cancel_leave_email_yes

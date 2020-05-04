@@ -16,6 +16,8 @@ intents:
 - cancel_leave_no
 - cancel_leave_email_yes
 - cancel_leave_email_no
+- EMAIL_reminder:
+    triggers: action_email_reminder
 entities:
 - TIME
 - DATE
@@ -59,7 +61,7 @@ responses:
         - title: no
           payload: no
   utter_cancel_leave:
-    - text: 'Ive check the record. You have a leave request from {start_time} to {end_time}. Are you sure you want to cancel your leave?'
+    - text: 'Ive check the record. You have a leave request from today to tomorrow. Are you sure you want to cancel your leave?'
       buttons:
         - title: yes
           payload: "/cancel_leave_yes"
@@ -94,5 +96,9 @@ actions:
 - utter_goodbye
 - utter_iamabot
 - utter_check_policy
+- action_email_reminder
+- action_restarted
+- action_slot_reset
+- action_cancel_leave_email_yes
 forms:
 - leave_form
