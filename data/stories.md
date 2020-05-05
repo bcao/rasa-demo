@@ -61,7 +61,7 @@
   - utter_cancel_leave_confirm
 * cancel_leave_email_yes
   - action_cancel_leave_email_yes
-
+* goodbye
 
 ## ask leave and cancel leave
 * greet
@@ -78,6 +78,7 @@
   - utter_cancel_leave_confirm
 * cancel_leave_email_yes
   - action_cancel_leave_email_yes
+* goodbye
 
 ## language change
 * chinese

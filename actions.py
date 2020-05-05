@@ -167,7 +167,7 @@ class LeaveForm(FormAction):
             return [AllSlotsReset()]
         else:
             dispatcher.utter_message(template="utter_goodbye")
-            self.birthday = False
+            self.birthday = True
             return [AllSlotsReset()]
 
 class ActionRestarted(Action): 	
