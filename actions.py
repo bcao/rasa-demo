@@ -95,8 +95,8 @@ class ActionCancelLeaveEmailYes(Action):
             name="my_reminder",
             kill_on_user_message=False,
         )
-        await asyncio.sleep(5)
-        dispatcher.utter_message(template="utter_email_done")
+        # await asyncio.sleep(5)
+        # dispatcher.utter_message(template="utter_email_done")
 
         return [reminder]
 
