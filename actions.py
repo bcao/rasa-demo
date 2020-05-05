@@ -28,6 +28,8 @@
 
 from typing import Dict, Text, Any, List, Union, Optional
 import datetime
+import time
+import asyncio
 from dateutil import relativedelta, parser
 import logging
 from rasa_sdk import Tracker, Action
@@ -93,6 +95,8 @@ class ActionCancelLeaveEmailYes(Action):
             name="my_reminder",
             kill_on_user_message=False,
         )
+        await asyncio.sleep(5)
+        dispatcher.utter_message(template="utter_email_done")
 
         return [reminder]
 
@@ -109,7 +113,7 @@ class ActionReactToReminder(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(template="I've got the reply from you manager and he has approved your cancellation.")
+        dispatcher.utter_message(template="utter_email_done")
 
         return []
 

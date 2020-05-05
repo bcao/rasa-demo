@@ -41,8 +41,6 @@ responses:
       payload: I want to check my tasks
     - title: I want to take leave
       payload: I want to take leave
-    - title: I want to take leave
-      payload: I want to take leave
     - title: I want to update my information
       payload: I want to update my information
     - title: more FAQs
@@ -122,7 +120,9 @@ responses:
     - title: 否
       payload: 否
   utter_chinese:
-  - text: 请问可以怎么帮到您？
+    - text: 请问可以怎么帮到您？
+  utter_email_done:
+    - text: I've got the reply from you manager and he has approved your cancellation.
 actions:
 - utter_ask_start_time
 - utter_ask_end_time
