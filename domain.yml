@@ -49,6 +49,17 @@ responses:
       payload: I want to ask human service
     - title: "5. more FAQs "
       payload: more FAQs
+  utter_greet_again:
+    - text: It is done, what else can I do for you? Or you might be interested in below
+      buttons:
+      - title: "1. Take leave "
+        payload: I want to take leave
+      - title: "2. Cancel leave "
+        payload: I want to cancel my leave
+      - title: "3. Ask for human service "
+        payload: I want to ask human service
+      - title: "4. more FAQs "
+        payload: more FAQs
   utter_ask_leave_type:
     - text: 'Please Choose leave type:'
       buttons:

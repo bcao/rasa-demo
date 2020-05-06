@@ -34,35 +34,35 @@ from dateutil import relativedelta, parser
 import logging
 from rasa_sdk import Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction, REQUESTED_SLOT
+from rasa_sdk.forms import FormAction #, REQUESTED_SLOT
 from rasa_sdk.events import Form, AllSlotsReset, SlotSet, Restarted, EventType
 from rasa_sdk.events import ReminderScheduled, ReminderCancelled
 
 logger = logging.getLogger(__name__)
 
 
-class CustomFormAction(FormAction):
-    def name(self):
-        return ""
+# class CustomFormAction(FormAction):
+#     def name(self):
+#         return ""
 
-    def request_next_slot(
-        self,
-        dispatcher: "CollectingDispatcher",
-        tracker: "Tracker",
-        domain: Dict[Text, Any],
-    ) -> Optional[List[EventType]]:
-        """Request the next slot and utter template if needed,
-            else return None"""
+#     def request_next_slot(
+#         self,
+#         dispatcher: "CollectingDispatcher",
+#         tracker: "Tracker",
+#         domain: Dict[Text, Any],
+#     ) -> Optional[List[EventType]]:
+#         """Request the next slot and utter template if needed,
+#             else return None"""
 
-        for slot in self.required_slots(tracker):
-            if self._should_request_slot(tracker, slot):
-                logger.debug(f"Request next slot '{slot}'")
-                dispatcher.utter_message(
-                    template=f"utter_ask_{self.name()}_{slot}", **tracker.slots
-                )
-                return [SlotSet(REQUESTED_SLOT, slot)]
+#         for slot in self.required_slots(tracker):
+#             if self._should_request_slot(tracker, slot):
+#                 logger.debug(f"Request next slot '{slot}'")
+#                 dispatcher.utter_message(
+#                     template=f"utter_ask_{self.name()}_{slot}", **tracker.slots
+#                 )
+#                 return [SlotSet(REQUESTED_SLOT, slot)]
 
-        return None
+#         return None
 
 class ActionCancelLeave(Action):
     def name(self):

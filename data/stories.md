@@ -90,4 +90,18 @@
 * check_task
   - utter_list_task
 * affirm
+  - utter_greet_again
+
+## check task and create leave form
+* greet
   - utter_greet
+* check_task
+  - utter_list_task
+* affirm
+  - utter_greet_again
+* ask_for_leave
+    - leave_form
+    - form{"name": "leave_form"}
+    - form{"name": null}
+* affirm
+    - utter_goodbye_birthday
