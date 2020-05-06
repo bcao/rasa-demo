@@ -75,13 +75,14 @@
 - I want take leave from [today](start_time) to [tomorrow](end_time)
 - I'm taking leave from [tomorrow](start_time) to [next Tursday](end_time)
 - I'm taking leave from [next Monday](start_time) to [next Tursday](end_time)
+- I'm taking [annual leave](leave_type) from [next Monday](start_time) to [next Tursday](end_time)
 
 ## intent:cancel_leave
 - I want to cancel leave
 - I want to cancel my leave
 - I'd like to cancel leave
 - please cancel my leave
-- please cancel my leave on Friday[DATE]
+- please cancel my leave on [Friday](DATE)
 
 ## intent:inform
 - tomorrow
@@ -90,6 +91,13 @@
 - Friday
 - next Monday
 - this Thursday
+- [Annual leave](leave_type)
+- [Business leave](leave_type)
+- [Emergency leave](leave_type)
+- [Holiday bond](leave_type)
+- [Paternity leave](leave_type)
+- [Study leave](leave_type)
+- [Sports leave](leave_type)
 
 ## intent:check_task
 - I want to check my tasks

@@ -132,7 +132,7 @@ class LeaveForm(FormAction):
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
 
-        return ["start_time", "end_time", "confirm"]
+        return ["leave_type", "start_time", "end_time", "confirm"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -159,8 +159,8 @@ class LeaveForm(FormAction):
         if tracker.get_slot("confirm"):
             if self.birthday:
                 dispatcher.utter_message(template="utter_ticket_created")
-                dispatcher.utter_message(template="utter_goodbye_birthday")
-                self.birthday = False
+                #dispatcher.utter_message(template="utter_goodbye_birthday")
+                #self.birthday = False
             else:
                 dispatcher.utter_message(template="utter_ticket_created")
             SlotSet("confirm", None)

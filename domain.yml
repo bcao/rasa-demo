@@ -33,18 +33,39 @@ slots:
     type: unfeaturized
   start_time:
     type: unfeaturized
+  leave_type:
+    type: unfeaturized
 responses:
   utter_greet:
-  - text: Hey! How are you? What can I do for you today?
+  - text: Hi, Tina, how are you, what can I do for you? Or you might be interested in below
     buttons:
-    - title: I want to check my tasks
+    - title: You have 1 task pending to approve
       payload: I want to check my tasks
-    - title: I want to take leave
+    - title: Take leave
       payload: I want to take leave
-    - title: I want to update my information
-      payload: I want to update my information
+    - title: Cancel leave
+      payload: I want to cancel my leave
+    - title: Ask for human service
+      payload: I want to ask human service
     - title: more FAQs
       payload: more FAQs
+  utter_ask_leave_type:
+    - text: 'Please Choose leave type:'
+      buttons:
+        - title: Annual leave
+          payload: Annual leave
+        - title: Business leave
+          payload: Business leave
+        - title: Emergency leave
+          payload: Emergency leave
+        - title: Holiday bond
+          payload: Holiday bond
+        - title: Paternity leave
+          payload: Paternity leave
+        - title: Study leave
+          payload: Study leave
+        - title: Sports leave
+          payload: Sports leave
   utter_list_task:
   - text: You have a leave request from Tom on next Monday (detals at http://ega/ticket/t313).
       Do you want to approve?
@@ -72,10 +93,15 @@ responses:
   utter_ticket_created:
   - text: It is done. A ticket has been created at the same it. The ticket id is T314.
       You may refer to http://ega/ticket/t314 for record.
+    buttons:
+      - title: Still have questions?
+        payload: yes
+      - title: End this service
+        payload: no
   utter_ask_start_time:
-  - text: when to start?
+  - text: When to start?
   utter_ask_end_time:
-  - text: when to end?
+  - text: When to end?
   utter_check_policy:
   - text: Do you know the EGA's policy on leave?
     buttons:

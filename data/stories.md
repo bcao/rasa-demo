@@ -38,8 +38,7 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * affirm
-    - utter_ticket_created
-* goodbye
+    - utter_goodbye_birthday
 
 ## ask for leave 2
 * greet
@@ -49,8 +48,7 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * affirm
-    - utter_ticket_created
-* goodbye
+    - utter_goodbye_birthday
 
 ## cancel leave
 * greet
@@ -91,3 +89,5 @@
   - utter_greet
 * check_task
   - utter_list_task
+* affirm
+  - utter_greet
