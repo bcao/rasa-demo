@@ -39,32 +39,32 @@ responses:
   utter_greet:
   - text: Hi, Tina, how are you, what can I do for you? Or you might be interested in below
     buttons:
-    - title: You have 1 task pending to approve
+    - title: "1. You have 1 task pending to approve"
       payload: I want to check my tasks
-    - title: Take leave
+    - title: "2. Take leave           "
       payload: I want to take leave
-    - title: Cancel leave
+    - title: "Cancel leave           "
       payload: I want to cancel my leave
-    - title: Ask for human service
+    - title: "Ask for human service    "
       payload: I want to ask human service
-    - title: more FAQs
+    - title: "more FAQs          "
       payload: more FAQs
   utter_ask_leave_type:
     - text: 'Please Choose leave type:'
       buttons:
-        - title: Annual leave
+        - title: "Annual leave         "
           payload: Annual leave
-        - title: Business leave
+        - title: "Business leave         "
           payload: Business leave
-        - title: Emergency leave
+        - title: "Emergency leave         "
           payload: Emergency leave
-        - title: Holiday bond
+        - title: "Holiday bond         "
           payload: Holiday bond
-        - title: Paternity leave
+        - title: "Paternity leave         "
           payload: Paternity leave
-        - title: Study leave
+        - title: "Study leave         "
           payload: Study leave
-        - title: Sports leave
+        - title: "Sports leave         "
           payload: Sports leave
   utter_list_task:
   - text: You have a leave request from Tom on next Monday (detals at http://ega/ticket/t313).
@@ -92,7 +92,7 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_ticket_created:
   - text: It is done. A ticket has been created at the same it. The ticket id is T314.
-      You may refer to http://ega/ticket/t314 for record.
+      You may refer to http://ega/ticket/t314 for record. Please be noted your annual leave balance is 10 days.
     buttons:
       - title: Still have questions?
         payload: yes
