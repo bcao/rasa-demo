@@ -41,30 +41,30 @@ responses:
     buttons:
     - title: "1. You have 1 task pending to approve"
       payload: I want to check my tasks
-    - title: "2. Take leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+    - title: "2. Take leave "
       payload: I want to take leave
-    - title: "3. Cancel leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+    - title: "3. Cancel leave "
       payload: I want to cancel my leave
-    - title: "4. Ask for human service &nbsp;&nbsp;"
+    - title: "4. Ask for human service "
       payload: I want to ask human service
-    - title: "5. more FAQs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+    - title: "5. more FAQs "
       payload: more FAQs
   utter_ask_leave_type:
     - text: 'Please Choose leave type:'
       buttons:
-        - title: "Annual leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Annual leave\t\t"
           payload: Annual leave
-        - title: "Business leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Business leave "
           payload: Business leave
-        - title: "Emergency leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Emergency leave "
           payload: Emergency leave
-        - title: "Holiday bond &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Holiday bond "
           payload: Holiday bond
-        - title: "Paternity leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Paternity leave "
           payload: Paternity leave
-        - title: "Study leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Study leave "
           payload: Study leave
-        - title: "Sports leave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        - title: "Sports leave "
           payload: Sports leave
   utter_list_task:
   - text: You have a leave request from Tom on next Monday (detals at http://ega/ticket/t313).
