@@ -38,6 +38,8 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * deny
+    - utter_goodbye
+* affirm
     - utter_thank_you
     - utter_goodbye_birthday
 
@@ -49,6 +51,8 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * deny
+    - utter_goodbye
+* affirm
     - utter_thank_you
     - utter_goodbye_birthday
 
