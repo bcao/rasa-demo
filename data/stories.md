@@ -37,7 +37,8 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
-* affirm
+* deny
+    - utter_thank_you
     - utter_goodbye_birthday
 
 ## ask for leave 2
@@ -47,7 +48,8 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
-* affirm
+* deny
+    - utter_thank_you
     - utter_goodbye_birthday
 
 ## cancel leave
@@ -69,7 +71,7 @@
     - form{"name": "leave_form"}
     - form{"name": null}
 * affirm
-    - utter_ticket_created
+    - utter_greet_again
 * cancel_leave
   - utter_cancel_leave
 * cancel_leave_yes
@@ -103,5 +105,12 @@
     - leave_form
     - form{"name": "leave_form"}
     - form{"name": null}
-* affirm
+* deny
+    - utter_thank_you
     - utter_goodbye_birthday
+
+## transfer
+* greet
+  - utter_greet
+* ask_for_human
+  - utter_wait_for_human

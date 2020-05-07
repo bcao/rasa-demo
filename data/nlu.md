@@ -102,3 +102,7 @@
 ## intent:check_task
 - I want to check my tasks
 - check tasks for me
+
+## intent:ask_for_human
+- Ask for human service
+- I want to ask for human service

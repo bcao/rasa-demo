@@ -19,6 +19,7 @@ intents:
 - chinese
 - affirm_zh
 - check_task
+- ask_for_human
 - EMAIL_reminder:
     triggers: action_email_reminder
 entities:
@@ -57,7 +58,7 @@ responses:
       - title: "2. Cancel leave "
         payload: I want to cancel my leave
       - title: "3. Ask for human service "
-        payload: I want to ask human service
+        payload: I want to ask for human service
       - title: "4. more FAQs "
         payload: more FAQs
   utter_ask_leave_type:
@@ -103,14 +104,14 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_ticket_created:
   - text: It is done. A ticket has been created at the same it. The ticket id is T314.
-      You may refer to http://ega/ticket/t314 for record. Please be noted your annual leave balance is 10 days.
+      You may refer to http://ega/ticket/t314 for record. 
     buttons:
       - title: Still have questions?
         payload: yes
       - title: End this service
         payload: no
   utter_ask_start_time:
-  - text: When to start?
+  - text: When to start? (Please be noted your annual leave balance is 10 days.)
   utter_ask_end_time:
   - text: When to end?
   utter_check_policy:
@@ -160,6 +161,10 @@ responses:
     - text: 请问可以怎么帮到您？
   utter_email_done:
     - text: I've got the reply from you manager and he has approved your cancellation.
+  utter_thank_you:
+    - text: Thank you!
+  utter_wait_for_human:
+      - text: Please wait a second, I'm transferring you to someone...
 actions:
 - utter_ask_start_time
 - utter_ask_end_time
